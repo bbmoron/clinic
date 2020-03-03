@@ -1,12 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { Index } from './components/Index/Index';
+import { Procedure } from './components/Procedure/Procedure';
+import { Pricing } from './components/Pricing/Pricing';
+import { BlogPost } from './components/BlogPost/BlogPost';
+import { DesPost } from './components/DesPost/DesPost';
+import { DocPost } from './components/DocPost/DocPost';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(<Router>
+  <Switch>
+    <Route exact path="/">
+      <Index />
+    </Route>
+    <Route path="/procedure">
+      <Procedure />
+    </Route>
+    <Route path="/pricing">
+      <Pricing />
+    </Route>
+    <Route path="/des/:blogPostID" component={(props) => <BlogPost {...props} />} />
+    <Route path="/methods/:desPostID" component={(props) => <DesPost {...props} />} />
+    <Route path="/doc/:docPostID" component={(props) => <DocPost {...props} />} />
+  </Switch>
+</Router>, document.getElementById('root'));
