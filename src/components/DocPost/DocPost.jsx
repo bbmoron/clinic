@@ -41,16 +41,20 @@ const Block = styled.div`
 `;
 
 export const DocPost = (props) => {
-  const DBlink = "https://www.jsonstore.io/cb419453d1ab29198fe619118f8520c89156d76ec5ed09a8b547767d4881f825";
+  const DBlink = "https://api.jsonbin.io/b/5e5f5892baf60366f0e264cd";
 
   const [methods, setMethods] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(DBlink).then(response => response.json()).then(data => {
+    fetch(DBlink, {
+      headers: {
+        'secret-key': '$2b$10$D5yizK.APqQ/q.kQ7fcvS.J1hM7CC6JE4kgccK03nWbSG4i0s.57q'
+      }
+    }).then(response => response.json()).then(data => {
       console.log(props.match.params.docPostID);
-      console.log(data.result[props.match.params.docPostID]);
-      setMethods(data.result);
+      console.log(data[props.match.params.docPostID]);
+      setMethods(data);
       setTimeout(() => {
         setLoading(false);
       }, 200);

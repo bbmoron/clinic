@@ -86,7 +86,7 @@ const LinkTo = styled(Link)`
 
 export const Doctors = () => {
 
-  const link = "https://www.jsonstore.io/cb419453d1ab29198fe619118f8520c89156d76ec5ed09a8b547767d4881f825";
+  const link = "https://api.jsonbin.io/b/5e5f5892baf60366f0e264cd";
 
   const [showAll, setShowAll] = useState(false);
 
@@ -97,8 +97,12 @@ export const Doctors = () => {
   let cDoc = 0;
 
   useEffect(() => {
-    fetch(link).then(response => response.json()).then(data => {
-      setDoctors(data.result);
+    fetch(link, {
+      headers: {
+        'secret-key': '$2b$10$D5yizK.APqQ/q.kQ7fcvS.J1hM7CC6JE4kgccK03nWbSG4i0s.57q'
+      }
+    }).then(response => response.json()).then(data => {
+      setDoctors(data);
       setTimeout(() => {
         setLoading(false);
       }, 200);

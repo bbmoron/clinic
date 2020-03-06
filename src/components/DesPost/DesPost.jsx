@@ -33,14 +33,18 @@ const Content = styled.div`
 `;
 
 export const DesPost = (props) => {
-  const DBlink = "https://www.jsonstore.io/686f9b9b4933bf5a47b073458ceec295b2208bf5bc7f231fe5440a44d4a36295";
+  const DBlink = "https://api.jsonbin.io/b/5e5f5919baf60366f0e26536";
 
   const [methods, setMethods] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(DBlink).then(response => response.json()).then(data => {
-      setMethods(data.result);
+    fetch(DBlink, {
+      headers: {
+        'secret-key': '$2b$10$D5yizK.APqQ/q.kQ7fcvS.J1hM7CC6JE4kgccK03nWbSG4i0s.57q'
+      }
+    }).then(response => response.json()).then(data => {
+      setMethods(data);
       setTimeout(() => {
         setLoading(false);
       }, 200);

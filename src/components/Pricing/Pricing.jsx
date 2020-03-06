@@ -61,16 +61,20 @@ const ItemDescRight = styled.div`
 `;
 
 export const Pricing = (props) => {
-  const DBlink = "https://www.jsonstore.io/cad777df6fc13ffcbafff4a1592c32a2d2ebcdbb69a53ef58ddb7cd1eaf31fbe";
+  const DBlink = "https://api.jsonbin.io/b/5e5f55de74ed8a66ce707ae8/latest";
 
   const [pricing, setPricing] = useState(null);
   const [loading, setLoading] = useState(true);
   const [fetched, setFetched] = useState(false);
 
   useEffect(() => {
-    fetch(DBlink).then(response => response.json()).then(data => {
-      setPricing(data.result);
-      console.log(data.result);
+    fetch(DBlink,{
+      headers: {
+        'secret-key': '$2b$10$D5yizK.APqQ/q.kQ7fcvS.J1hM7CC6JE4kgccK03nWbSG4i0s.57q'
+      }
+    }).then(response => response.json()).then(data => {
+      setPricing(data);
+      console.log(data);
       setTimeout(() => {
         setLoading(false);
       }, 200);
