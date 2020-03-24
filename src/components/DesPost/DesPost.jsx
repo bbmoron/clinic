@@ -30,10 +30,19 @@ const Content = styled.div`
   & img {
     max-width: 100%;
   }
+
+  & a {
+    color: skyblue;
+    text-decoration: none;
+  }
+`;
+
+const PersonalPhoto = styled.img`
+  width: 300px;
 `;
 
 export const DesPost = (props) => {
-  const DBlink = "https://api.jsonbin.io/b/5e5f5919baf60366f0e26536";
+  const DBlink = "https://api.jsonbin.io/b/5e5f5919baf60366f0e26536/latest";
 
   const [methods, setMethods] = useState(null);
   const [loading, setLoading] = useState(true);

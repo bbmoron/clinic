@@ -83,14 +83,18 @@ const LinkTo = styled(Link)`
 `;
 
 export const Ills = () => {
-  const url = "https://api.npoint.io/6e158030756a77532617";
+  const url = "https://api.jsonbin.io/b/5e7a06ea79d7e24dd30e2ecf/latest";
 
   const [content, setContent] = useState(null);
   const [posts, setPosts] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(url).then(response => response.json()).then(data => {
+    fetch(url, {
+      headers: {
+        'secret-key': '$2b$10$D5yizK.APqQ/q.kQ7fcvS.J1hM7CC6JE4kgccK03nWbSG4i0s.57q'
+      }
+    }).then(response => response.json()).then(data => {
       const keys = Object.keys(data);
       setContent(data);
       setPosts([keys.slice(0, keys.length / 3), keys.slice(keys.length / 3, keys.length / 3 + keys.length / 3), keys.slice(keys.length / 3 + keys.length / 3, keys.length / 3 + keys.length / 3 + keys.length)]);

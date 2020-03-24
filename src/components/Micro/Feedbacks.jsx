@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import styled from 'styled-components';
 import HorizontalScroll from 'react-scroll-horizontal';
@@ -24,7 +24,6 @@ const Wrap = styled.div`
   font-family: sans-serif;
   padding-top: 40px;
   padding-bottom: 40px;
-  height: 560px;
 `;
 
 const Heading = styled.h1`
@@ -73,37 +72,32 @@ const ChildInnerMob = styled.div`
 `;
 
 export const Feedbacks = () => {
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://prodoctorov.ru/static/js/widget_big.js?v7";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <>
       <BrowserView>
         <Wrap id="feedbacks">
           <Heading>Отзывы клиентов</Heading>
           <br />
-          <br />
-          <br />
-          <HorizontalScroll>
-            <Child style={{ paddingLeft: '5vw' }}>
-              <ChildInner>
-                <img src={feed1} style={{ height: '100px', width: '100px', borderRadius: '50px', objectFit: 'cover' }} />
-                <h3>Миронов В.А.</h3>
-                <p>Обратился в клинику с грыжей, уже готовился на операцию, но решил все таки довериться и попытаться обойтись без нее. Лечение длилось 12 дней. Облегчение почувствовал уже после 3 дня . Через 2 месяца сделал повторное МРТ - грыжи нет. Выражаю благодарность клинике , персоналу и моему врачу Ковзелеву П.Д.</p>
-              </ChildInner>
-            </Child>
-            <Child>
-              <ChildInner>
-                <img src={feed2} style={{ height: '100px', width: '100px', borderRadius: '50px', objectFit: 'cover' }} />
-                <h3>Мирошничук Ю.В.</h3>
-                <p>О методе PRP мне было известно давно и собственно я пришла в основном из за него , но Федор Сергеевич убедил меня провести ещё лазер. Приятно удивлена отношением персонала к своему делу и пациентам. Колено чувствует себя лучше , двигается легче , практически не болит. Спасибо.</p>
-              </ChildInner>
-            </Child>
-            <Child>
-              <ChildInner>
-                <img src={feed3} style={{ height: '100px', width: '100px', borderRadius: '50px', objectFit: 'cover' }} />
-                <h3>Кирсанова Т.А.</h3>
-                <p>Новая клиника, чисто, красиво, хороший район! Я пришла просто на УЗИ, но мне понравилось все. Очень удобное расположение, добиралась на метро - реально 5 минут от метро.</p>
-              </ChildInner>
-            </Child>
-          </HorizontalScroll>
+          <div id="pd_widget_big" style={{ width: '100vw', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} data-lpu="66736">
+            <div id="pd_widget_big_content"></div>
+            <a target="_blank" href="https://prodoctorov.ru/spb/lpu/66736-smart-klinik/#otzivi" target="_blank" class="pd_read_all">читать все отзывы</a>
+            <span id="pd_powered_by">
+              powered by <a target="_blank" href="https://prodoctorov.ru">
+                <img class='pd_logo' src="https://prodoctorov.ru/static/logo_widget.png" />
+              </a>
+            </span>
+            <div class="pd_rate_header">
+              <a class="pd_rate_new" style={{ background: '#05e1cb' }} href="https://prodoctorov.ru/new/rate/lpu/66736/">Оставить отзыв</a>
+            </div>
+          </div>
         </Wrap>
       </BrowserView>
       <MobileView>

@@ -5,11 +5,11 @@ import doctor from './doctor.png';
 
 const ConsultOfferWrap = styled.div`
   width: 100vw;
-  height: 684px;
+  height: 500px;
   background: #f8f9fc;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   font-family: sans-serif;
 `;
@@ -21,6 +21,7 @@ const ConsultOfferForm = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-right: 110px;
 `;
 
 const Heading = styled.h1`
@@ -46,22 +47,6 @@ const TypeForm = styled.input`
   font-size: 23px;
   font-weight: lighter;
   padding-left: 18px;
-`;
-
-const TypeFormMini = styled.div`
-  width: 338px;
-  height: 40px;
-  border-radius: 6px;
-  outline: none;
-  border: 1px solid #a7a7a7;
-  color: #a7a7a7;
-  font-size: 23px;
-  font-weight: lighter;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
 `;
 
 const TypeFormMiniGreen = styled.div`
@@ -93,6 +78,7 @@ const Row = styled.div`
 export const ConsultOffer = () => {
   return(
     <ConsultOfferWrap id="consult">
+      <img src={doctor} alt="doctor" style={{ height: '500px', marginTop: '0px', marginLeft: '0px' }} />
       <ConsultOfferForm>
         <Heading>Вам нужна консультация?</Heading>
         <br />
@@ -105,7 +91,6 @@ export const ConsultOffer = () => {
           <a href="https://app.medesk.ru/patient/?e=5df0a859eec9e57d6f60e26c&a=anonymous" target="_blank" style={{ textDecoration: 'none', color: 'white' }}><TypeFormMiniGreen>Отправить</TypeFormMiniGreen></a>
         </Row>
       </ConsultOfferForm>
-      <img src={doctor} alt="doctor" style={{ height: '600px', marginTop: '84px', marginLeft: '90px' }} />
     </ConsultOfferWrap>
   );
 };

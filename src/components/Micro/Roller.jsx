@@ -8,7 +8,8 @@ import {
   isMobile
 } from "react-device-detect";
 
-import writing from './writing.png';
+// import writing from './writing.png';
+import writing from './writing1.png';
 
 const ConsultOfferWrap = styled.div`
   width: 100vw;
@@ -25,7 +26,7 @@ const ConsultOfferWrapInner = styled.div`
   width: 100vw;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 `;
 
@@ -35,7 +36,6 @@ const ConsultOfferForm = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 140px;
 `;
 
 const Heading = styled.h1`
@@ -206,8 +206,7 @@ export const Roller = () => {
           <ConsultOfferWrapInner>
             <ConsultOfferForm>
               <Heading>Уникальное предложение в честь открытия клиники Smart Clinic</Heading>
-              <UnderText><h3>До 31 марта дарим скидку 20% на абсолютно все услуги из прайса!</h3></UnderText>
-              <UnderText style={{ lineHeight: '17pt' }}>Но это еще не все! Вы можете пройти любое УЗИ исследование всего за <b>500</b> рублей,<br />сдать общий анализ крови, липидограмму и пройти УЗИ сосудов шеи за <b>1000</b> рублей,<br />а также получить консультацию любого специалиста нашей клиники за <b>1000</b> рублей.</UnderText>
+              <UnderText style={{ lineHeight: '17pt' }}>Любое УЗИ-исследование на аппарате экспертного уровня за <b>500</b> рублей.<br />Общий анализ крови и липидограмма (анализ на холестерин) за <b>500</b> рублей.<br />Консультация любого специалиста клиники за <b>1000</b> рублей.</UnderText>
               <br />
               <br />
               <Row>

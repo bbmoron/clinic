@@ -86,7 +86,7 @@ const LinkTo = styled(Link)`
 
 export const Doctors = () => {
 
-  const link = "https://api.jsonbin.io/b/5e5f5892baf60366f0e264cd";
+  const link = "https://api.jsonbin.io/b/5e5f5892baf60366f0e264cd/latest";
 
   const [showAll, setShowAll] = useState(false);
 
@@ -107,6 +107,10 @@ export const Doctors = () => {
         setLoading(false);
       }, 200);
     });
+    const script = document.createElement("script");
+    script.src = "https://prodoctorov.ru/static/js/widget_column.js?v3";
+    script.async = true;
+    document.body.appendChild(script);
   }, []);
 
   useEffect(() => {
@@ -118,8 +122,15 @@ export const Doctors = () => {
 
   return (
     <Wrap id="docs">
-      <Heading>Наши доктора</Heading>
-      <Undertext></Undertext>
+      <Heading>Наша команда</Heading>
+      <Undertext>
+        <div id="pd_widget_column" class="pd_widget_column " data-lpu="66736">
+          <a target="_blank" href="https://prodoctorov.ru/"><img class='pd_logo' src="https://prodoctorov.ru/static/logo_widget.png" /></a>
+          <a target="_blank" class="pd_lpu_name" href="https://prodoctorov.ru/spb/lpu/66736-smart-klinik/">«Смарт Клиник»</a>
+          <div id="pd_widget_column_content_66736" class="pd_widget_column_content"></div>
+          <a target="_blank" href="https://prodoctorov.ru/spb/lpu/66736-smart-klinik/otzivi/" target="_blank">читать отзывы</a>
+        </div>
+      </Undertext>
       <br />
       <br />
       <Row>
@@ -128,11 +139,11 @@ export const Doctors = () => {
             cDoc++;
             if(cDoc > shortStack) return;
             return(
-              <LinkTo to={`/doc/${key}`}>
+              <LinkTo to={ doctors[key].description != '' ? `/doc/${key}` : '#' }>
                 <Block>
                   <BlockImage src={doctors[key].image} />
                   <p style={{ margin: 0, padding: 0, marginTop: '10px', fontSize: '14pt' }}>{ doctors[key].name }</p>
-                  { /* <Undertext><i>Невролог, стаж 2 года</i></Undertext> */ }
+                  <Undertext><i>{ doctors[key].occupation }</i></Undertext>
                 </Block>
               </LinkTo>
             );
@@ -146,11 +157,11 @@ export const Doctors = () => {
       {
         fetched && Object.keys(doctors).slice(shortStack, Object.keys(doctors).length).map(key => {
           return(
-            <LinkTo to={`/doc/${key}`}>
+            <LinkTo to={ doctors[key].description != '' ? `/doc/${key}` : '#' }>
               <Block>
                 <BlockImage src={doctors[key].image} />
                 <p style={{ margin: 0, padding: 0, marginTop: '10px', fontSize: '14pt' }}>{ doctors[key].name }</p>
-                { /* <Undertext><i>Невролог, стаж 2 года</i></Undertext> */ }
+                <Undertext><i>{ doctors[key].occupation }</i></Undertext>
               </Block>
             </LinkTo>
           );

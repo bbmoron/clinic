@@ -206,8 +206,9 @@ export const Footer = () => {
                 </List>
               </Menu>
               <Items>
-                <i className="fab fa-vk" style={{ color: 'rgba(255,255,255,0.4)' }}></i>
-                <i className="fab fa-facebook-f" style={{ marginLeft: '12px', color: 'rgba(255,255,255,0.4)' }}></i>
+                { /* <i className="fab fa-vk" style={{ color: 'rgba(255,255,255,0.4)' }}></i>
+                <i className="fab fa-facebook-f" style={{ marginLeft: '12px', color: 'rgba(255,255,255,0.4)' }}></i> */ }
+                <a href="https://wa.me/79818025506" target="_blank" ><i style={{ color: 'rgba(255,255,255,1)' }} className="fab fa-whatsapp"></i></a>
                 <a href="https://instagram.com/smartclinicspb" target="_blank" ><i className="fab fa-instagram" style={{ marginLeft: '12px', color: 'rgba(255,255,255,1)' }}></i></a>
               </Items>
               <div style={{ height: '70px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginLeft: '8px', fontFamily: 'sans-serif' }}>
@@ -218,10 +219,10 @@ export const Footer = () => {
           </FooterUpperWrap>
           <FooterLowerWrap>
             <FooterLowerContent>
-              <ListItemDark style={{ fontSize: '14px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Дизайн: Миронов F****ng Art</ListItemDark>
+              <ListItemDark style={{ fontSize: '14px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Дизайн: Миронов Art</ListItemDark>
               <LowerItems>
-                <ListItem style={{ padding: 0, margin: 0 }}>Условия обработки персональных данных</ListItem>
-                <ListItem style={{ padding: 0, margin: 0, marginLeft: '12px' }}><a href={process.env.PUBLIC_URL + '/license.pdf'} style={{ color: 'white', textDecoration: 'none' }}>Лицензия на медецинскую деятельность</a></ListItem>
+                <ListItem style={{ padding: 0, margin: 0 }}><a href={process.env.PUBLIC_URL + '/politika.pdf'} style={{ color: 'white', textDecoration: 'none' }}>Условия обработки персональных данных</a></ListItem>
+                <ListItem style={{ padding: 0, margin: 0, marginLeft: '12px' }}><a href={process.env.PUBLIC_URL + '/license.pdf'} style={{ color: 'white', textDecoration: 'none' }}>Лицензия на медицинскую деятельность</a></ListItem>
                 <ListItem style={{ padding: 0, margin: 0, marginLeft: '12px' }}>Лицензия на деятельность по обороту НС и ПВ</ListItem>
                 <ListItem style={{ padding: 0, margin: 0, marginLeft: '12px' }}>ООО "Смарт Клиник"</ListItem>
               </LowerItems>
@@ -249,7 +250,7 @@ export const Footer = () => {
               </Menu>
               <div style={{ height: '140px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', fontFamily: 'sans-serif' }}>
                 <a href="tel:+78126792388" style={{ padding: 0, margin: 0, textDecoration: 'none', color: 'white', fontSize: '20px' }}>+7(812) 679 2388</a>
-                <a href="tel:+78126792388" style={{ padding: 0, margin: 0, textDecoration: 'none' }}><p style={{ color: 'skyblue', padding: 0, margin: 0 }}>Записаться на прием</p></a>
+                <a href="https://app.medesk.ru/patient/?e=5df0a859eec9e57d6f60e26c&a=anonymous&page=request-edit" target="_blank" style={{ textDecoration: 'none', color: 'skyblue', margin: 0, padding: 0 }}>Записаться на прием</a>
               </div>
             </FooterUpperContentMob>
           </FooterUpperWrapMob>

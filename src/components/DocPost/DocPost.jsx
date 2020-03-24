@@ -41,7 +41,7 @@ const Block = styled.div`
 `;
 
 export const DocPost = (props) => {
-  const DBlink = "https://api.jsonbin.io/b/5e5f5892baf60366f0e264cd";
+  const DBlink = "https://api.jsonbin.io/b/5e5f5892baf60366f0e264cd/latest";
 
   const [methods, setMethods] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -91,6 +91,8 @@ export const DocPost = (props) => {
                 <br />
                 <b>Сферы работы:</b><br />
                 { props.match.params.docPostID && <div dangerouslySetInnerHTML={{__html: methods[props.match.params.docPostID].sphere}} /> }
+                <br />
+                <h3><a href={ props.match.params.docPostID && methods[props.match.params.docPostID].link } style={{ color: 'skyblue', textDecoration: 'none' }} target="_blank">Записаться на прием</a></h3>
               </Block>
             </Row>
           </Content>
@@ -124,6 +126,9 @@ export const DocPost = (props) => {
               <br />
               <b>Сферы работы:</b><br />
               { props.match.params.docPostID && <div dangerouslySetInnerHTML={{__html: methods[props.match.params.docPostID].sphere}} /> }
+              <br />
+              <br />
+              <a href={ props.match.params.docPostID && methods[props.match.params.docPostID].link } style={{ color: 'skyblue', textDecoration: 'none' }} target="_blank">Записаться на прием</a>
             </Content>
             <br />
             <br />
